@@ -173,6 +173,7 @@ function executar(dados, nome, tipo)
     emRota = true
     
     local root = getRoot()
+    local hum = getHum()
     if not root then emRota = false return end
 
     if nome == "base_militar_pos2" then
