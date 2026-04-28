@@ -86,7 +86,6 @@ local MapRoutes = {
             Vector3.new(331.10, 29.06, -9891.08), Vector3.new(334.55, 29.06, -9903.20), Vector3.new(349.12, 29.08, -9915.16),
             Vector3.new(364.24, 29.16, -9922.89), Vector3.new(388.78, 29.06, -9935.63), Vector3.new(409.41, 29.06, -9935.81),
             Vector3.new(430.67, 29.06, -9932.64), Vector3.new(445.45, 29.06, -9923.95), 
-            Vector3.new(475.28, 29.06, -9913.53),
             Vector3.new(475.55, 40.90, -9911.50),
             Vector3.new(464.18, 43.14, -9903.49)
         }
@@ -173,18 +172,9 @@ function executar(dados, nome, tipo)
     emRota = true
     
     local root = getRoot()
-    local hum = getHum()
     if not root then emRota = false return end
-
-    if nome == "base_militar_pos2" then
-    log("<b>SISTEMA:</b> Auto Kill na Base Militar")
-    task.wait(0.1)
-    hum.Health = 0
-    emRota = false
-    return
-end
-   
-local offsetZ = root.Position.Z - dados.spawn.Z
+    
+    local offsetZ = root.Position.Z - dados.spawn.Z
     local pontos = dados.waypoints or dados.route
     
     for i, p in ipairs(pontos) do
